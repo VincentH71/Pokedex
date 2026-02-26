@@ -68,7 +68,6 @@ const Pokemons: NextPage = () => {
   return (
     <div id="pokemons_list_page">
       <div id="filters">
-        {/* Select génération */}
         <select value={selectedGen} onChange={handleGenChange}>
           <option value="">Toutes les générations</option>
           {availableGenerations.map((gen) => (
@@ -78,7 +77,6 @@ const Pokemons: NextPage = () => {
           ))}
         </select>
 
-        {/* Filtres types */}
         <div id="type-buttons">
           <button
             className={selectedType === "" ? "active" : ""}
