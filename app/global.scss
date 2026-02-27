@@ -1,0 +1,30 @@
+#home_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0px;
+  img{
+    margin: 20px 0;
+    width: 320px;
+    height: 320px;
+  }
+  button {
+    height: 60px;
+    width: 120px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
