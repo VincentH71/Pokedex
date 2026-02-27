@@ -4,6 +4,9 @@
   justify-content: center;
   align-items: center;
   margin: 100px 0px;
+  h1{
+    text-align: center;
+  }
   img{
     margin: 20px 0;
     width: 320px;
@@ -22,9 +25,11 @@
     align-items: center;
     justify-content: center;
     transition: transform 0.2s;
+    color: black;
 
     &:hover {
       transform: scale(1.05);
+      color: black;
     }
   }
 }
