@@ -17,8 +17,8 @@ const Pokemons: NextPage = () => {
     async function loadData() {
       try {
         const [pokemonRes, typesRes] = await Promise.all([
-          fetch("https://pokebuildapi.fr/api/v1/pokemon"),
-          fetch("https://pokebuildapi.fr/api/v1/types"),
+          fetch("https://tyradex.app/api/v1/pokemon"),
+          fetch("https://tyradex.app/api/v1/types"),
         ]);
 
         const pokemonData: PokemonListItem[] = await pokemonRes.json();
@@ -44,13 +44,13 @@ const Pokemons: NextPage = () => {
 
   const filteredList = useMemo(() => {
     return pokemonsList.filter((pokemon) => {
-      if (selectedGen && pokemon.apiGeneration !== selectedGen) {
+      if (selectedGen && pokemon.generation !== selectedGen) {
         return false;
       }
 
       if (
         selectedType &&
-        !pokemon.apiTypes.some((type) => type.name === selectedType)
+        !pokemon.types?.some((type) => type.name === selectedType)
       ) {
         return false;
       }
@@ -60,10 +60,12 @@ const Pokemons: NextPage = () => {
   }, [pokemonsList, selectedGen, selectedType]);
 
   const availableGenerations = useMemo(() => {
-    return [...new Set(pokemonsList.map((p) => p.apiGeneration))].sort(
+    return [...new Set(pokemonsList.map((p) => p.generation))].sort(
       (a, b) => a - b
     );
   }, [pokemonsList]);
+
+  console.log(types)
 
   return (
     <div id="pokemons_list_page">
@@ -87,14 +89,14 @@ const Pokemons: NextPage = () => {
 
           {types.map((type) => (
             <button
-              key={type.name}
-              className={selectedType === type.name ? "active" : ""}
-              onClick={() => setSelectedType(type.name)}
-              title={type.name}
+              key={type.id}
+              className={selectedType === type.name.fr ? "active" : ""}
+              onClick={() => setSelectedType(type.name.fr)}
+              title={type.name.fr}
             >
               <Image
-                src={type.image}
-                alt={type.name}
+                src={type.sprites}
+                alt={type.name.fr}
                 width={24}
                 height={24}
                 unoptimized
@@ -108,7 +110,7 @@ const Pokemons: NextPage = () => {
 
       <ul id="pokemons_list">
         {filteredList.map((pokemon) => (
-          <PokemonItem key={pokemon.id} pokemon={pokemon} />
+          <PokemonItem key={pokemon.pokedex_id} pokemon={pokemon} />
         ))}
       </ul>
     </div>

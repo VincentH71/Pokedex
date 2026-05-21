@@ -5,25 +5,45 @@ export interface PokemonListResponse {
   results: PokemonListItem[];
 }
 
+export interface TranslatedName {
+  fr: string;
+  en: string;
+  jp: string;
+}
+
 export interface PokemonListItem {
-  id: number;
-  pokedexId: number;
-  apiGeneration: number;
-  apiTypes: {
+  pokedex_id: number;
+  generation: number;
+  types: {
     name: string;
     image: string;
   }[];
-  name: string;
-  url: string;
+  name: TranslatedName;
+  sprites: {
+    regular: string;
+    shiny: string | null;
+    gmax: string | null;
+  };
 }
 
 export interface Pokemon {
-  id: number;
-  name: string;
+  pokedex_id: number;
+  name: {
+    fr: string;
+    en: string;
+    jp: string;
+  };
   height: number;
   weight: number;
-  sprite: string;
-  types: PokemonType[];
+  sprites: {
+    regular: string;
+    shiny: string | null;
+    gmax: string | null;
+  };
+  types: {
+    name: string;
+    image: string;
+  }[];
   stats: {
       HP: number;
       attack: number;
@@ -34,37 +54,12 @@ export interface Pokemon {
     },
 }
 
-export interface Sprites {
-  front_default: string;
-  front_shiny: string;
-  other: {
-    "official-artwork": {
-      front_default: string;
-      front_shiny: string;
-    };
-  };
-}
-
-export interface PokemonType {
-  slot: number;
-  type: {
-    name: string;
-    url: string;
-  };
-}
-
-export interface PokemonStat {
-  base_stat: number;
-  effort: number;
-  stat: {
-    name: string;
-    url: string;
-  };
-}
-
 export interface PokebuildType {
   id: number;
-  name: string;
-  image: string;
-  englishName: string;
+  name: {
+    fr: string;
+    en: string;
+    jp: string;
+  };
+  sprites: string;
 }

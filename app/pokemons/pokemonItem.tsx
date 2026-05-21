@@ -10,14 +10,14 @@ type IProps = {
 };
 
 const PokemonItem: FC<IProps> = ({ pokemon }) => {
-  const id = pokemon.pokedexId;
+  const id = pokemon.pokedex_id;
 
   return (
     <li>
       <Link href={`/pokemons/${id}`}>
         <Image
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-          alt={pokemon.name}
+          alt={pokemon.name.fr}
           width={96}
           height={96}
         />
