@@ -39,7 +39,7 @@ export default function RootLayout({
       <div>
   <ul id="Navbar">
     <li><Link href="/">Accueil</Link></li>
-    <li><Link href="/pokemons">Liste de pokémons</Link></li>
+    <li><Link href="/pokemons">Pokémons</Link></li>
     <li><Link href="/pokemons/102">EasterEgg</Link></li>
   </ul>
 </div>
