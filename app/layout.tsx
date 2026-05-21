@@ -34,12 +34,12 @@ export default function RootLayout({
        <Head>
         <link rel="icon" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
       <div>
   <ul id="Navbar">
-    <li><Link href="./">Accueil</Link></li>
+    <li><Link href="/">Accueil</Link></li>
+    <li><Link href="/pokemons">Liste de pokémons</Link></li>
     <li><Link href="/pokemons/102">EasterEgg</Link></li>
   </ul>
 </div>
